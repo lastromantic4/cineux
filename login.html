@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineUX – Login</title>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
+        url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+
+    .login-box {
+      background: rgba(0,0,0,.85);
+      padding: 40px;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 8px;
+    }
+
+    .login-box h1 {
+      color: #e50914;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .login-box h2 {
+      margin-bottom: 20px;
+    }
+
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border-radius: 4px;
+      border: none;
+      background: #333;
+      color: #fff;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background: #e50914;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-box button.secondary {
+      background: #444;
+    }
+
+    .login-box p {
+      margin-top: 20px;
+      font-size: 14px;
+      text-align: center;
+      color: #aaa;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 12px;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-box">
+    <h1>CineUX</h1>
+    <h2>Entrar</h2>
+
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="senha" placeholder="Senha" />
+
+    <button onclick="login()">Entrar</button>
+    <button class="secondary" onclick="cadastrar()">Criar conta</button>
+
+    <p>Acesso seguro via HTTPS</p>
+  </div>
+
+  <footer>Projeto acadêmico de IHC</footer>
+
+  <!-- FIREBASE -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "SUA_API_KEY",
+      authDomain: "SEU_DOMINIO.firebaseapp.com",
+      projectId: "SEU_PROJECT_ID",
+      appId: "SEU_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    window.cadastrar = function () {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      createUserWithEmailAndPassword(auth, email, senha)
+        .then(() => alert('Conta criada com sucesso!'))
+        .catch(error => alert(error.message));
+    }
+
+    window.login = function () {
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+
+      signInWithEmailAndPassword(auth, email, senha)
+        .then(() => window.location.href = 'index.html')
+        .catch(() => alert('Email ou senha inválidos'));
+    }
+  </script>
+
+</body>
+</html>
