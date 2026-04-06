@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CineUX</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+    body { background-color: #0b0b0b; color: #fff; }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 32px;
+      background: #000;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 { color: #e50914; }
+
+    nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .banner {
+      height: 60vh;
+      background: linear-gradient(to top, #000, transparent), url('https://images.unsplash.com/photo-1524985069026-dd778a71c7b4');
+      background-size: cover;
+      background-position: center;
+      padding: 60px 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .banner h2 { font-size: 36px; margin-bottom: 10px; }
+    .banner p { max-width: 500px; font-size: 14px; margin-bottom: 20px; }
+
+    .banner button {
+      width: 140px;
+      padding: 10px;
+      border: none;
+      margin-right: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .assistir { background: #e50914; color: #fff; }
+    .lista { background: #333; color: #fff; }
+
+    section {
+      padding: 30px;
+    }
+
+    section h3 { margin-bottom: 15px; }
+
+    .row {
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+    }
+
+    .card {
+      min-width: 160px;
+      height: 240px;
+      background: #222;
+      border-radius: 6px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 12px;
+      color: #aaa;
+      border-top: 1px solid #222;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>CineUX</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Buscar</a>
+      <a href="#">Minha Lista</a>
+      <a href="#">Perfil</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <h2>Filme em Destaque</h2>
+    <p>Uma experiência cinematográfica envolvente, criada com foco em usabilidade e IHC.</p>
+    <div>
+      <button class="assistir">▶ Assistir</button>
+      <button class="lista">+ Minha Lista</button>
+    </div>
+  </div>
+
+  <section>
+    <h3>Em Alta</h3>
+    <div class="row">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </section>
+
+  <section>
+    <h3>Recomendados para Você</h3>
+    <div class="row">
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+      <div class="card"></div>
+    </div>
+  </section>
+
+  <footer>
+    CineUX © 2026 · Projeto acadêmico de IHC
+  </footer>
+
+</body>
+</html>
